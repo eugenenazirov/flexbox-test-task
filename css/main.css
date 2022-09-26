@@ -1,0 +1,437 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: Nunito;
+    font-weight: 400;
+    src: url("../fonts/Nunitoregular.woff");
+}
+
+@font-face {
+    font-family: Nunito;
+    font-weight: 700;
+    src: url("../fonts/Nunitobold.woff");
+}
+
+@font-face {
+    font-family: Nunito;
+    font-weight: 800;
+    src: url("../fonts/Nunitoextrabold.woff");
+}
+
+body {
+    font-family: Nunito, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    background: #F7F7F7;
+    position: relative;
+    border-right: 1px solid #E2E2E2;;
+}
+
+.logo {
+    padding: 25px 0 27px;
+    text-align: center;
+    display: block;
+}
+
+.sidebar-navigation ul {
+    list-style: none;
+    margin: 0 17px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 13px 15px;
+    border-radius: 5px;
+    outline: 2px solid transparent;
+    outline-offset: -4px;
+    transition: 0.3s ease-out;
+    color: #858796;
+    line-height: 19px;
+}
+
+
+.nav-item a span {
+    margin-left: 10px;
+    transition:
+            background-color 0.3s ease 0.1s,
+            color 0.2s ease-out;
+}
+
+.nav-item a svg {
+    fill: #858796;
+    transition: fill 0.2s ease-in;
+}
+.nav-item a:hover {
+    background: #467DF2;
+    color: #FFFFFF;
+}
+
+.nav-item.active a {
+    background: #467DF2;
+    color: #FFFFFF;
+}
+
+.nav-item.active a svg, .nav-item a:hover svg {
+    fill: #FFFFFF;
+}
+
+.feedback {
+    position: fixed;
+    bottom: 0;
+    margin: 17px;
+    padding: 14px 12px;
+    width: 216px;
+    border: 1px solid transparent;
+    transition: 0.3s ease-out;
+}
+
+.feedback img {
+    margin-right: 6px;
+    float: left;
+}
+
+.feedback p {
+    line-height: 19px;
+    color: #4F4E4F;
+}
+
+.feedback p a {
+    text-decoration: none;
+    color: #0042EB;
+}
+
+.feedback:hover {
+    border: 1px solid #467DF2;
+    border-radius: 5px;
+}
+
+.content {
+    flex-grow: 1;
+    position: relative;
+}
+
+.header {
+    background: #F7F7F7;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.burger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    /*Тут долго думал как же сделать это бургер-меню
+    в итоге решил сделать кнопкой, ведь как я понимаю,
+    нажатие на неё должно скрывать сайдбар.*/
+    margin-right: 40px;
+}
+
+.menu-item {
+    text-decoration: none;
+    color: #858796;
+    margin: 0 20px;
+    transition: 0.3s, ease-out;
+}
+
+.menu-item:hover {
+    color: #3D63D2;
+}
+
+.dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown svg {
+    margin-left: 10px;
+    fill: #858796;
+}
+
+.dropdown:hover svg {
+    fill: #3D63D2;
+}
+
+.dropdown-wrapper {
+    position: relative;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 40px;
+    z-index: 3;
+    width: 150px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(102, 102, 102, 0.15);
+    padding: 30px 20px;
+    border-radius: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+            opacity 0.3s ease-out,
+            visibility 0.3s;
+}
+
+.dropdown-wrapper:hover .dropdown-list {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-list ul {
+    list-style: none;
+}
+
+.dropdown-list ul li {
+    margin-bottom: 15px;
+}
+
+.dropdown-list ul li:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-list ul li a {
+    text-decoration: none;
+    color: #686464;
+    line-height: 19px;
+    transition: 0.3s ease-out;
+}
+
+.dropdown-list ul li a:hover {
+    color: #3D63D2;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.header-actions > * {
+    margin-right: 40px;
+}
+
+.header-actions > *:last-child {
+    margin-right: 0;
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    background: #EFEFF5;
+    border: 1px solid #E2E2E2;
+    border-radius: 10px;
+    padding: 10px 20px 11px;
+}
+
+.search-input a {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.search-input input {
+    font-family: Nunito, sans-serif;
+    border: none;
+    background: #EFEFF5;
+    outline: none;
+}
+
+.search-input input::placeholder {
+    color: #B3B3B3;
+}
+
+.statistics path {
+    fill: #858796;
+    transition: 0.3s ease-out;
+}
+
+.statistics:hover path {
+    fill: #467DF2;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    padding: 11px 18px 10px;
+    transition: 0.3s ease-out;
+}
+
+.btn-upload {
+    background: #467DF2;
+    width: 83px;
+    color: #FFFFFF;
+}
+
+.btn-upload:hover {
+    background: #2F54A3;
+}
+
+.main-content {
+    background: #EDEEF3;
+    padding: 25px 40px;
+    position: relative;
+}
+
+.main-content h1 {
+    font-weight: 800;
+    font-size: 35px;
+    line-height: 48px;
+    color: #4F4E4F;
+}
+
+.video-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.video-card {
+    margin: 20px;
+    max-width: 350px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 transparent;
+    transition: 0.3s ease-in;
+}
+
+.video-card:hover {
+    box-shadow: 0 4px 20px rgba(102, 102, 102, 0.15);
+}
+
+.card-image {
+    display: block;
+    position: relative;
+    line-height: 0;
+}
+
+.video-card .status-badge {
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    line-height: 1;
+    top: 12px;
+    left: 12px;
+}
+
+.status-badge.on-moderation {
+    color: #4F4E4F;
+    background: rgba(247, 247, 247, 0.8);
+    border-radius: 5px;
+}
+
+.status-badge.published {
+    color: #027900;
+    background: #C6E0C3;
+    border-radius: 5px;
+}
+
+.status-badge.error {
+    color: #DB0C0C;
+    background: rgba(255, 188, 188, 0.8);
+    border-radius: 5px;
+}
+
+.card-info {
+    padding: 20px 26px;
+}
+
+.card-info h3 {
+    margin-bottom: 8px;
+}
+
+.card-info h3 a {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 25px;
+    color: #4F4E4F;
+    text-decoration: none;
+}
+
+.card-info p {
+    font-size: 15px;
+    line-height: 30px;
+    color: #4F4E4F;
+    margin-bottom: 18px;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-icon svg {
+    fill: #858796;
+    transition: 0.3s ease 0.1s;
+}
+
+.action-icon:hover svg {
+    fill: #467DF2;
+}
+
+.tech-support {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 380px;
+    right: -73px;
+    transform: rotate(-90deg);
+    /*Как же меня бесит поведение блока, которому задано свойство transform!!!
+    Вроде ты его повернул вертикально, а верстке пофигу,
+    CSS думает что элемент до сих пор горизонтальный))
+    Сколько я парился над тем чтобы он не прыгал по диагонали при наведении.
+    В итоге остановился на анимированном right-свойстве.
+    Есть какие-нибудь лайфхаки, чтобы этого избежать?*/
+    padding: 10px 20px 20px;
+    background: #467DF2;
+    font-weight: 700;
+    color: #FFFFFF;
+    border-radius: 10px 10px 0 0;
+    transition: 0.3s ease-out;
+}
+
+.tech-support:hover {
+    background: #2F54A3;
+    right: -68px;
+}
+
+.tech-support span {
+    margin-left: 10px;
+}
+
+/*Чтобы скрыть блок фидбека при открытой панели разработчика.
+Ну и на адаптиве пригодится, я думаю.*/
+@media(max-height: 550px) {
+    .feedback {
+        display: none;
+    }
+}
